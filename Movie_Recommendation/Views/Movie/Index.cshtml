@@ -1,0 +1,63 @@
+﻿@model List<Movies>;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="page-title border-bottom color-border mb-20 pb-15">
+    <div class="d-flex align-items-center">
+        <div>
+            <h1 class="text-secondary font-22">
+              Movies
+            </h1>
+        </div>
+    </div>
+</div>
+    <div class="table-shorting d-flex align-items-center justify-content-end flex-wrap gap-10  mb-2">
+        <div class="d-flex align-items-center gap-15">
+            <a class="btn btn-primary btn-36 min-w-auto font-14 font-secondary-medium ps-2 pe-2" asp-action="Create">Add New</a>
+        </div>
+    </div>
+    <div>
+        <div class="table-responsive bg-white mb-20 vh-100">
+            <table class="table table-bordered mb-0 display">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Email</th>
+                        <th>Location</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Title</td>
+                                <td>@item.Poster</td>
+                                <td>@item.Ratings</td>
+                                <td>
+                                    <button class="more-btn dropdown text-grey bg-transparent border-0" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="3.794" height="15.176" viewBox="0 0 3.794 15.176">
+                                            <path d="M18.981,8.647a1.9,1.9,0,1,0-1.9,1.9A1.9,1.9,0,0,0,18.981,8.647Zm0,11.382a1.9,1.9,0,1,0-1.9,1.9A1.9,1.9,0,0,0,18.981,20.029Zm0-5.691a1.9,1.9,0,1,0-1.9,1.9A1.9,1.9,0,0,0,18.981,14.338Z" transform="translate(-15.188 -6.75)" fill="Currentcolor"></path>
+                                        </svg>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end border-0 shadow">
+                                        <li>
+                                            <a class="dropdown-item font-14" asp-action="Create" asp-route-id="@item.Id">Edit</a>
+                                        </li>
+                                    </ul>
+
+                                </td>
+
+
+                            </tr>
+
+
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>

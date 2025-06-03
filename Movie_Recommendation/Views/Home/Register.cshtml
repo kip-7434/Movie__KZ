@@ -1,0 +1,44 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="login-section d-flex align-items-center">
+    <div class="login-right d-flex align-items-center justify-content-center flex-column" style="background-image: url(/assets/img/login-bg-shade.jpg);">
+        <div class="login-right-content shadow-1 bg-white rounded-20">
+            <h3 class="font-28 font-secondary-bold pb-30">Sign Up</h3>
+            <form asp-action="Register">
+                <div class="row overflow-hidden">
+                    <div class="col-12 mb-20">
+                        <div class="form-floating">
+                            <input type="email" class="form-control" name="email" id="email" placeholder="" required="">
+                            <label for="email" class="form-label">Email</label>
+                        </div>
+                    </div>
+                    <div class="col-12  mb-20">
+                        <div class="form-floating inputwith-text">
+                            <input type="password" class="form-control" name="password" id="password" value="" placeholder="" required="">
+                            <label for="password" class="form-label">Password</label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-floating inputwith-text">
+                            <input type="password" class="form-control" name="ConfirmPassword" id="ConfirmPassword" value="" placeholder="" required="">
+                            <label for="ConfirmPassword" class="form-label">Confirm Password</label>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-3 mb-3">
+                        <div class="d-flex">
+                            <span class="text-start">
+                                <a asp-action="Login" asp-controller="Home" class="link-primary font-secondary-regular text-decoration-none forgot-basswod-btn">Login to my account</a>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="d-grid">
+                            <button type="submit" name="button" class="btn btn-46 btn-primary font-secondary-medium font-18">Sign up</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
