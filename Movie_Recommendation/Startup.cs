@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Movie_Recommendation.Models;
+using Movie_Recommendation.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,6 +37,10 @@ namespace Movie_Recommendation
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+            services.AddHttpClient();
+
+            services.AddHttpClient<MovieService>();
+
             services.Configure<IdentityOptions>(options =>
             {
                 options.Password.RequireDigit = false;

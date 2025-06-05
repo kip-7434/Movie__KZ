@@ -1,0 +1,196 @@
+﻿@model Movie_Recommendation.Models.Movies;
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<Movie_Recommendation.Models.ApplicationUser> signInManager;
+@inject UserManager<Movie_Recommendation.Models.ApplicationUser> user;
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var count = 1;
+}
+<div class="row mt-3">
+    <div class="col-md-12 d-flex justify-content-between">
+        <h4 class="primary-text">@ViewData["Title"]</h4>
+    </div>
+</div>
+<section class="section dashboard pt-3 adminDashboard">
+    <div class="row">
+
+        <div class="col-lg-8">
+            <div class="row">
+
+                <div class="col-md-4">
+                    <div class="card info-card sales-card">
+
+                        <div class="card-body">
+                            <h5 class="card-title text-primary-2">My Units</h5>
+                            <a href="@Url.Action("MyUnits", "Units")" style="text-decoration: none; color: inherit;">
+                                <div class="d-flex align-items-center">
+                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                        <i class="ri-list-ordered"></i>
+                                    </div>
+                                    <div class="ps-3">
+                                        @*<h6>@Model.TotalUnits</h6>*@
+
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+                @if (signInManager.IsSignedIn(User) && (User.IsInRole("Lecturer")))
+                {
+
+                    <div class="col-xxl-4 col-md-6">
+                        <div class="card info-card revenue-card">
+
+
+                            <div class="card-body">
+                                <h5 class="card-title text-primary-2">My Units</h5>
+                                <a  style="text-decoration: none; color: inherit;">
+                                    <div class="d-flex align-items-center">
+                                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                            <i class="ri-file-add-fill"></i>
+                                        </div>
+                                        <div class="ps-3">
+                                            @*<h6>@Model.ActiveProduct</h6>*@
+
+
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                }
+
+                <div class="col-md-4">
+
+                    <div class="card info-card customers-card">
+
+
+
+                        <div class="card-body">
+                            <h5 class="card-title text-primary-2">Notifications</h5>
+                            <a  style="text-decoration: none; color: inherit;">
+                                <div class="d-flex align-items-center">
+                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                        <i class="ri-notification-3-fill"></i>
+                                    </div>
+                                    <div class="ps-3">
+
+
+                                    </div>
+                                </div>
+                            </a>
+
+                        </div>
+                    </div>
+
+                </div>
+                @if (signInManager.IsSignedIn(User) && (User.IsInRole("Admin")))
+                {
+
+                    <div class="col-12">
+                        <div class="card recent-sales overflow-auto">
+                            <div class="card-body">
+                                <h5 class="card-title text-primary-2">Registered Lecterurs <span>|<a class="fw-bold card-stitle text-end d-inline pull-right mx-2" asp-action="Index" asp-controller="Usermanagement">View All</a></span></h5>
+
+                                <table class="table table-borderless datatable" id="example">
+                                    <thead>
+                                        <tr>
+
+                                            <th scope="col">#</th>
+                                            <th scope="col">Username</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">ActivationStatus</th>
+
+                                        </tr>
+                                    </thead>
+                                    @*<tbody>
+                                        @if (Model != null && Model.Users.Count() > 0)
+                                        {
+                                            @foreach (var item in Model.Users)
+                                            {
+                                                <tr>
+                                                    <td>@count</td>
+                                                    <td>@item.UserName</td>
+                                                    <td>@item.Email</td>
+                                                    <td>
+                                                        @if (item.ActivationStatus)
+                                                        {
+                                                            <span>Confirmed</span>
+                                                        }
+                                                        else
+                                                        {
+                                                            <span>Not Confirmed</span>
+                                                        }
+                                                    </td>
+                                                </tr>
+                                                count++;
+                                            }
+                                        }
+                                        else
+                                        {
+                                        }
+                                    </tbody>*@
+                                </table>
+
+                            </div>
+
+                        </div>
+                    </div>
+                }
+                @if (signInManager.IsSignedIn(User) && (User.IsInRole("User") || User.IsInRole("Llecturerrrr")))
+                {
+
+                    <div class="col-12">
+                        <div class="card recent-sales overflow-auto">
+                            <div class="card-body">
+                                <h5 class="card-title text-primary-2">Units <span>|<a class="fw-bold card-stitle text-end d-inline pull-right mx-2">View All Units</a></span></h5>
+
+                                <table class="table table-borderless datatable">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Unit Name</th>
+                                            <th scope="col">Unit Code</th>
+                                            <th scope="col">Hours</th>
+                                        </tr>
+                                    </thead>
+                                    @*<tbody>
+                                        @if (Model != null && Model.Jobs.Count() > 0)
+                                        {
+                                            @foreach (var item in Model.Jobs)
+                                            {
+                                                <tr>
+                                                    <td>@count</td>
+                                                    <td>@item.Title</td>
+                                                    <td>@item.Location</td>
+                                                    <td>@item.DeadLine.ToString("dd MMMM yyyy")</td>
+                                                </tr>
+                                                count++;
+                                            }
+                                        }
+                                        else
+                                        {
+                                        }
+                                    </tbody>*@
+                                </table>
+
+                            </div>
+
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        
+
+    </div>
+</section>
+
+
+
+

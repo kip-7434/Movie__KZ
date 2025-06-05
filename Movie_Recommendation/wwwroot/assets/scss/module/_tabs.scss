@@ -1,0 +1,214 @@
+/* Style the tab */
+
+/* Style the buttons inside the tab */
+.tab button {
+  font-size: 22px;
+  color: $color-default;
+  font-family: $font-medium;
+  background-color: transparent;
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: none;
+  padding-bottom: 12px;
+  position: relative;
+  margin: 0 10px;
+
+  &::before {
+    content: "";
+    width: 33px;
+    height: 0px;
+    border: 2px solid #cd3969;
+    position: absolute;
+    left: 0;
+    transition: all 0.3s ease;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
+    border-radius: 50px;
+    opacity: 0;
+  }
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover,
+.tab button.active {
+  color: $color-primary;
+  &::before {
+    opacity: 1;
+  }
+}
+
+/* Create an active/current tablink class */
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+}
+
+.site-tab {
+  ul {
+    li {
+      a {
+        font-family: $font-medium;
+        position: relative;
+        padding-bottom: 12px;
+        margin-right: 25px;
+        font-size: 18px !important;
+        color: $color-default;
+        padding-left: 0;
+        padding-right: 0;
+
+        &::after {
+          content: "";
+          transition: all 0.3s ease;
+          width: 0px;
+          background: $color-default;
+          height: 3px;
+          display: block;
+          margin: 0 auto;
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+        }
+
+        &.active,
+        &:hover {
+          color: $color-primary !important;
+          &::after {
+            width: 100%; background: $color-primary;
+          }
+        }
+      }
+
+      &:hover,
+      &.active {
+        a {
+          color: $color-secondary;
+          &::after {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  &.site-tab-sm {
+    ul {
+      li {
+        a {
+          font-size: 13px !important;
+          padding-bottom: 10px;
+          padding-left: 15px;
+          padding-right: 15px;
+        }
+      }
+    }
+  }
+
+  &.site-tab-available {
+    a {
+      &.nav-link-green.active,
+      &.nav-link-green:hover {
+        color: $color-primary;
+        &::after {
+          background-color: $color-primary;
+        }
+      }
+      &.nav-link-danger.active,
+      &.nav-link-danger:hover {
+        color: $color-danger;
+        &::after {
+          background-color: $color-danger;
+        }
+      }
+    }
+  }
+}
+
+.tab_v2_link .nav-link {
+  background: #fff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #0000000d !important;
+  border: 1px solid #e9e9e9;
+  margin-left: 12px;
+  font-size: 18px;
+  letter-spacing: 0px;
+  color: rgba(0, 0, 0, 0.8);
+  font-family: "barlow_condensedsemibold" !important;
+  text-transform: uppercase;
+  padding-top: 14px;
+  padding-bottom: 11px;
+  border-radius: 179px;
+}
+.tab_v2_link .nav-link:first-child {
+  margin-left: 0px;
+}
+.tab_v2_link .nav-link.active,
+.tab_v2_link .nav-link:hover {
+  background: #f1f1f1;
+  border: 1px solid #343434;
+}
+.bg-light-F1F1F1 {
+  background-color: #f1f1f1 !important;
+}
+
+.tab-content-app1 {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  border: 1px solid #f5f5f5;
+  border-radius: 15px;
+  padding: 40px 40px 40px 40px;
+  margin-left: -30px;
+  flex: 1;
+}
+
+.tab_vertical {
+  .nav {
+    z-index: 2;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .nav-link {
+    font-size: 22px;
+    text-align: left;
+    border-radius: 10px;
+    font-family: $font-primary;
+    padding: 28px 35px;
+    color: $color-default;
+    margin-bottom: 2px;
+
+    &.active,
+    &:hover {
+      background-color: $color-primary;
+      color: #fff;
+    }
+    &.active {
+      font-family: $font-medium;
+    }
+  }
+}
+
+@include media($lg) {
+  .tab_vertical .nav {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    .nav-link {
+      flex: 0 0 auto;
+      padding: 14px 17px;
+      font-size: 15px;
+    }
+  }
+  .tab-content-app1 {
+    margin-left: 0;
+  }
+}
+
+@include media($mobile-landscape) {
+  .tab_v2_link .nav-link {
+    padding-top: 10px;
+    padding-bottom: 7px;
+  }
+  .tab-content-app1 {
+    padding: 20px 20px 20px 20px;
+  }
+}

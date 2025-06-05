@@ -1,0 +1,19 @@
+@mixin border-radius($radius){
+border-radius: $radius !important;
+-webkit-border-radius: $radius !important;
+-ms-border-radius: $radius !important;
+-o-border-radius: $radius !important;
+}
+
+@mixin box-shadow($shadow) {
+    box-shadow: $shadow;
+    -ms-box-shadow: $shadow;
+    -moz-box-shadow: $shadow;
+    -webkit-box-shadow: $shadow;
+}
+
+
+
+@mixin media( $breakpoint){
+    @media (max-width: $breakpoint){ @content;}
+}

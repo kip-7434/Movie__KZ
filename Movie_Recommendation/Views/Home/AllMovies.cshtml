@@ -1,0 +1,54 @@
+﻿<div>
+    <div class="table-responsive bg-white mb-20">
+        <table class="table table-bordered mb-0" id="moviesTable">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Release Date</th>
+                    <th>Rating</th>
+                    <th>Popularity</th>
+                    <th>Overview</th>
+                    <th>Poster</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $("#moviesTable").DataTable({
+                "processing": true,
+                "serverSide": true,
+                "filter": true,
+                "ajax": {
+                    "url": "/Home/GetMovies", 
+                    "type": "POST",
+                    "datatype": "json"
+                },
+                "columns": [
+                    { "data": "title", "name": "Title", "autoWidth": true },
+                    { "data": "releaseDate", "name": "Release Date", "autoWidth": true },
+                    { "data": "vote_average", "name": "Rating", "autoWidth": true },
+                    { "data": "popularity", "name": "Popularity", "autoWidth": true },
+                    { "data": "overview", "name": "Overview", "autoWidth": true },
+                    {
+                        data: "poster_path",
+                        render: function (data, type, row) {
+                            return `<img src="https://image.tmdb.org/t/p/w200${data}" height="100" />`;
+                        },
+                        orderable: false
+                    },
+                    {
+                        data: null,
+                        render: function (data, type, row) {
+                            return `<button class="btn btn-sm btn-primary">Details</button>`;
+                        },
+                        orderable: false
+                    }
+                ]
+            });
+        });
+    </script>
+}

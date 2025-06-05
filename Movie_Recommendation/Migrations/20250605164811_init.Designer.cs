@@ -10,8 +10,8 @@ using Movie_Recommendation.Models;
 namespace Movie_Recommendation.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250602093257_Initial")]
-    partial class Initial
+    [Migration("20250605164811_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

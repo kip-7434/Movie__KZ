@@ -1,50 +1,170 @@
-﻿@model Movie_Recommendation.ViewModels.MovieViewModel;
-
+﻿@model Movie_Recommendation.Models.Movies;
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<Movie_Recommendation.Models.ApplicationUser> signInManager;
+@inject UserManager<Movie_Recommendation.Models.ApplicationUser> user;
 @{
-    Layout = "~/Views/Shared/_authLayout.cshtml";
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var count = 1;
 }
-
-<div class="page-title pb-15">
-    <h1 class="text-secondary font-22"> Dashboard</h1>
-</div>
-<div class="dashboard-section">
-    <div class="row">
-        <div class="col-xl-3 col-lg-4 col-sm-6 mb-20">
-            <div class="dashboard-card h-100 card card-1">
-                <div class="card-header bg-transparent">
-                    <h3 class="font-18 font-secondary-bold text-black opacity-08">Movies</h3>
-                </div>
-                <div class="card-body d-flex align-items-center gap-15">
-                    <div class="card-icon bg-white d-flex align-items-center justify-content-center rounded-circle">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="22.184" height="21.838" viewBox="0 0 22.184 21.838">
-                            <path d="M21722.58,19601.75q-8.956-.018-17.91-.006a2.333,2.333,0,0,1-.551-.049,1.347,1.347,0,0,1-1.025-1.439v-16.111a1.222,1.222,0,0,1,0-.146,1.353,1.353,0,0,1,1.348-1.342c.283-.01.566-.006.85-.006h1.467v.24c0,.648-.016,1.3.006,1.947a1.959,1.959,0,0,0,.152.758,1.483,1.483,0,0,0,1.467.871,1.545,1.545,0,0,0,1.7-1.689v-2.115h7.365v.234c0,.654,0,1.309.006,1.963a1.5,1.5,0,0,0,.9,1.455,2.171,2.171,0,0,0,1.3.088,1.253,1.253,0,0,0,1.119-1.363v-2.371c.779,0,1.537-.012,2.295,0a1.029,1.029,0,0,1,.447.137,1.392,1.392,0,0,1,.752,1v16.8a1.487,1.487,0,0,1-1.668,1.141Zm-18.117-1.369h18.443v-12.344h-18.443Zm15.1-1.309c-.365,0-.73.006-1.1,0-.234,0-.277-.043-.277-.277v-1.9c0-.23.043-.279.277-.279.742-.006,1.484,0,2.23,0,.191-.006.273.072.273.268-.006.643-.006,1.281,0,1.924,0,.2-.082.273-.273.273C21720.316,19599.072,21719.936,19599.072,21719.559,19599.072Zm-7.922,0h-1.139c-.18.006-.262-.07-.262-.256.006-.648.006-1.3,0-1.941,0-.186.076-.268.262-.268q1.137.009,2.273,0c.18,0,.256.088.25.273,0,.639,0,1.281,0,1.92.006.2-.076.277-.271.277C21712.379,19599.072,21712.008,19599.072,21711.637,19599.072Zm-4,0c-.365,0-.73.006-1.1,0-.229,0-.277-.043-.277-.277v-1.9c0-.23.043-.279.277-.279.742-.006,1.488,0,2.23,0,.191-.006.277.072.277.268-.01.639-.01,1.281,0,1.92,0,.2-.082.277-.271.277C21708.4,19599.072,21708.023,19599.072,21707.641,19599.072Zm9.078,0h-2.252c-.18.006-.256-.076-.256-.262.006-.648.006-1.291,0-1.941,0-.189.082-.262.262-.262.387.006.77,0,1.156,0,.365,0,.73.006,1.1,0,.191,0,.271.078.271.273-.01.643,0,1.281,0,1.924,0,.191-.076.268-.254.268Zm1.723-3.451c-.18,0-.262-.07-.256-.262.006-.643.006-1.291,0-1.941,0-.184.07-.262.256-.256.371.006.748,0,1.117,0s.758.006,1.135,0c.2-.006.277.072.273.268-.006.639-.006,1.281,0,1.92,0,.2-.082.271-.273.271C21719.947,19595.615,21719.193,19595.615,21718.441,19595.621Zm-4.23-.268c.006-.643.006-1.281,0-1.924,0-.191.07-.273.268-.268.375.006.758,0,1.133,0h1.1c.24,0,.285.045.285.273v1.924c0,.186-.072.262-.258.256-.758,0-1.516,0-2.273.006C21714.275,19595.621,21714.211,19595.535,21714.211,19595.354Zm-3.975.012q.009-.973,0-1.947c0-.18.07-.262.256-.256h2.273c.176,0,.256.066.256.246q-.006.981,0,1.963c0,.174-.076.25-.25.244-.381,0-.758,0-1.139,0s-.758,0-1.135.006C21710.318,19595.621,21710.236,19595.551,21710.236,19595.365Zm-3.969-.006c.006-.643,0-1.291,0-1.941,0-.18.07-.262.256-.256h2.273c.174,0,.256.066.256.246q-.009.981,0,1.963c0,.174-.082.25-.25.244-.387,0-.775,0-1.162,0-.371,0-.74,0-1.111.006C21706.344,19595.621,21706.262,19595.551,21706.268,19595.359Zm7.943-3.445q.009-.981,0-1.963c0-.164.07-.24.234-.24.773.006,1.543.006,2.316,0,.164,0,.234.082.23.246v1.963c0,.174-.072.25-.246.25-.387-.006-.77,0-1.156,0-.371,0-.746-.006-1.117,0h-.018C21714.287,19592.17,21714.211,19592.094,21714.211,19591.914Zm5.354.256h-1.1c-.24,0-.283-.037-.283-.271,0-.639.006-1.281,0-1.92-.006-.2.082-.268.273-.268.74.006,1.488,0,2.229.006.24,0,.279.039.279.277v1.881c0,.258-.039.295-.307.295Zm-11.389-6.395a.813.813,0,0,1-.736-.828c-.012-.529-.006-1.064-.006-1.594v-1.488a.849.849,0,0,1,.922-.91h.125a.84.84,0,0,1,.922.906c.01,1,.01,2.012.006,3.014a.852.852,0,0,1-.922.916A2.068,2.068,0,0,1,21708.176,19585.775Zm10.539-.061a.761.761,0,0,1-.568-.664,2.487,2.487,0,0,1-.016-.268c0-.955,0-1.9-.006-2.857a.87.87,0,0,1,.432-.873,1.228,1.228,0,0,1,1.133.006.759.759,0,0,1,.41.721v1.57c0,.506.006,1.02,0,1.525a.821.821,0,0,1-.873.883A2,2,0,0,1,21718.715,19585.715Z"
-                                  transform="translate(-21702.592 -19580.412)" fill="currentColor" stroke="rgba(0,0,0,0)"
-                                  stroke-miterlimit="10" stroke-width="1" />
-                        </svg>
-                    </div>
-                    <div class="card-disc d-flex align-items-center gap-15">
-                        <p class="font-12 text-black opacity-08">Total Number of Movies</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 col-lg-4 col-sm-6 mb-20">
-            <div class="dashboard-card h-100 card card-4">
-                <div class="card-header bg-transparent">
-                </div>
-                <div class="card-body d-flex align-items-center gap-15">
-                    <div class="card-icon bg-white d-flex align-items-center justify-content-center rounded-circle">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="21.258" height="23" viewBox="0 0 21.258 23">
-                            <path d="M20409.76,19599.459a5.314,5.314,0,1,1,5.314,5.314A5.321,5.321,0,0,1,20409.76,19599.459Zm3.033,0a.761.761,0,0,0,.764.76h.758v.758a.759.759,0,1,0,1.518,0v-.758h.758a.759.759,0,1,0,0-1.518h-.758v-.758a.759.759,0,1,0-1.518,0v.758h-.758A.761.761,0,0,0,20412.793,19599.459Zm-11.387,5.314a2.279,2.279,0,0,1-2.275-2.275v-1.516a8.36,8.36,0,0,1,5.109-7.7,7.607,7.607,0,0,0,5.16,2.377,6.811,6.811,0,0,0,1.389,9.117Zm2.721-17a6,6,0,1,1,6,6A6,6,0,0,1,20404.127,19587.775Z" transform="translate(-20399.131 -19581.773)" fill="currentColor" />
-                        </svg>
-                    </div>
-                    <div class="card-disc d-flex align-items-center gap-15">
-                        <p class="font-12 text-black opacity-08">Total number of movie categories</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="row mt-3">
+    <div class="col-md-12 d-flex justify-content-between">
+        <h4 class="primary-text">@ViewData["Title"]</h4>
     </div>
 </div>
+<section class="section dashboard pt-3 adminDashboard">
+    <div class="row">
+
+        <div class="col-lg-8">
+            <div class="row">
+
+                <div class="col-md-4">
+                    <div class="card info-card sales-card">
+
+                        <div class="card-body">
+                            <h5 class="card-title text-primary-2">All Movies</h5>
+                            <a  style="text-decoration: none; color: inherit;">
+                                <div class="d-flex align-items-center">
+                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                        <i class="ri-movie-2-line"></i>
+                                    </div>
+                                    <div class="ps-3">
+                                        <h6>@ViewData["movieCount"]</h6>
+
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+
+                    <div class="card info-card customers-card">
+
+
+
+                        <div class="card-body">
+                            <h5 class="card-title text-primary-2">New Movies</h5>
+                            <a style="text-decoration: none; color: inherit;">
+                                <div class="d-flex align-items-center">
+                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                        <i class="ri-clapperboard-fill"></i>
+                                    </div>
+                                    <div class="ps-3">
+                                        <h2>@ViewData["movieCount"]</h2>
+
+                                    </div>
+                                </div>
+                            </a>
+
+                        </div>
+                    </div>
+
+                </div>
+                @if (signInManager.IsSignedIn(User) && (User.IsInRole("Admin")))
+                {
+
+                    <div class="col-12">
+                        <div class="card recent-sales overflow-auto">
+                            <div class="card-body">
+                                <h5 class="card-title text-primary-2">Registered Lecterurs <span>|<a class="fw-bold card-stitle text-end d-inline pull-right mx-2" asp-action="Index" asp-controller="Usermanagement">View All</a></span></h5>
+
+                                <table class="table table-borderless datatable" id="example">
+                                    <thead>
+                                        <tr>
+
+                                            <th scope="col">#</th>
+                                            <th scope="col">Username</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">ActivationStatus</th>
+
+                                        </tr>
+                                    </thead>
+                                    @*<tbody>
+                                        @if (Model != null && Model.Users.Count() > 0)
+                                        {
+                                            @foreach (var item in Model.Users)
+                                            {
+                                                <tr>
+                                                    <td>@count</td>
+                                                    <td>@item.UserName</td>
+                                                    <td>@item.Email</td>
+                                                    <td>
+                                                        @if (item.ActivationStatus)
+                                                        {
+                                                            <span>Confirmed</span>
+                                                        }
+                                                        else
+                                                        {
+                                                            <span>Not Confirmed</span>
+                                                        }
+                                                    </td>
+                                                </tr>
+                                                count++;
+                                            }
+                                        }
+                                        else
+                                        {
+                                        }
+                                    </tbody>*@
+                                </table>
+
+                            </div>
+
+                        </div>
+                    </div>
+                }
+                @if (signInManager.IsSignedIn(User) && (User.IsInRole("User") || User.IsInRole("Panelist")))
+                {
+
+                    <div class="col-12">
+                        <div class="card recent-sales overflow-auto">
+                            <div class="card-body">
+                                <h5 class="card-title text-primary-2">Units <span>|<a class="fw-bold card-stitle text-end d-inline pull-right mx-2" asp-action="Index" asp-controller="Jobs">View All Units</a></span></h5>
+
+                                <table class="table table-borderless datatable">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Unit Name</th>
+                                            <th scope="col">Unit Code</th>
+                                            <th scope="col">Hours</th>
+                                        </tr>
+                                    </thead>
+                                    @*<tbody>
+                                        @if (Model != null && Model.Jobs.Count() > 0)
+                                        {
+                                            @foreach (var item in Model.Jobs)
+                                            {
+                                                <tr>
+                                                    <td>@count</td>
+                                                    <td>@item.Title</td>
+                                                    <td>@item.Location</td>
+                                                    <td>@item.DeadLine.ToString("dd MMMM yyyy")</td>
+                                                </tr>
+                                                count++;
+                                            }
+                                        }
+                                        else
+                                        {
+                                        }
+                                    </tbody>*@
+                                </table>
+
+                            </div>
+
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        
+
+    </div>
+</section>
+
+
 
 

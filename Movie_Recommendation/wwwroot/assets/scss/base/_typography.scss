@@ -1,0 +1,43 @@
+/* TYPOGRAPHY */
+
+// font families
+$font-primary: "gotham_narrowbook";
+$font-bold: "gotham_narrowbold";
+$font-medium: "gotham_narrowmedium";
+$font-black: "gotham_narrowblack";
+
+
+// $font-secondary: "gotham_narrowbook";
+// $font-secondary-medium: "gotham_narrowmedium";
+// $font-secondary-bold: "gotham_narrowbold";
+// $font-secondary-black: "gotham_narrowblack";
+
+
+
+.font-primary {
+  font-family: $font-primary !important;
+}
+.font-medium {
+  font-family: $font-medium;
+}
+.font-bold {
+  font-family: $font-bold;
+}
+.font-black {
+  font-family: $font-black;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-bold;
+}
+
+strong,
+b {
+  font-weight: normal;
+  font-family: $font-bold;
+}

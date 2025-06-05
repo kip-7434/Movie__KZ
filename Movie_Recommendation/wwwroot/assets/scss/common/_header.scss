@@ -1,0 +1,594 @@
+.app_header {
+  height: 145px;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  transition: all 0.5s ease;
+  z-index: 100;
+  border-top: 4px solid $color-primary;
+
+  .Applogo_col {
+    img {
+      max-width: 176px;
+      max-height: 85px;
+      width: auto;
+      transition: all 0.5s ease;
+      height: auto;
+    }
+  }
+
+  .container {
+    max-height: 105px;
+    transition: all 0.5s ease;
+  }
+  .header_inner {
+    background-color: $color-primary-light;
+    padding: 0 30px;
+    height: 100%;
+  }
+}
+
+.HeaderSearch_backdrop {
+  position: fixed;
+  left: 0;
+  z-index: 10;
+  top: 188px;
+  background: #000000;
+  width: 100%;
+  transition: all 0.5s ease;
+  height: 100%;
+  opacity: 0;
+  display: none;
+}
+
+.header_menu {
+  ul {
+    display: flex;
+    justify-content: center;
+    li {
+      a {
+        position: relative;
+        font-size: 18px;
+        cursor: pointer;
+        color: $color-default;
+        font-family: $font-medium;
+        margin: 0 17px;
+        padding-bottom: 8px;
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: calc(50% - 25px);
+          bottom: -5px;
+          width: 50px;
+          height: 4px;
+          background-color: transparent;
+          border: none;
+          border-radius: 20px;
+          transition: all 0.3s ease;
+        }
+      }
+
+      &:hover,
+      &.active {
+        a {
+          color: $color-primary;
+          &::after {
+            width: 100%;
+            background-color: $color-primary;
+            left: 0;
+            right: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.search_open_row {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  text-align: center;
+  max-width: 1014px;
+  background: #fff;
+  top: 0;
+  height: 188px;
+  padding-top: 32px;
+  transform: translateY(-100%);
+  transition: all 0.5s ease;
+
+  .search_inline {
+    max-width: 476px;
+    margin: 0 auto;
+    input {
+      font-size: 18px;
+    }
+  }
+}
+
+.searchBar_open {
+  box-shadow: 0px 3px 6px #0000001a;
+  height: 188px;
+  .search_open_row {
+    transform: translateY(0);
+  }
+  .HeaderSearch_backdrop {
+    display: block;
+    opacity: 0.3;
+  }
+}
+
+.Close_menu_overlay {
+  position: fixed;
+  left: 0px;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 15;
+  border: none;
+  display: none;
+  transition: all 0.5s ease;
+}
+#Close_menu_CTA {
+  display: none;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  position: absolute;
+  right: 10px;
+  z-index: 8;
+}
+
+.list_institution_mbl,
+#menu_mbl_CTA {
+  display: none !important;
+}
+
+.app_header.sticky .header_inner {
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1019607843);
+}
+
+.app_sticky_btn {
+  position: fixed;
+  top: 225px;
+  right: -10px;
+  z-index: 10;
+  box-shadow: 0 0 3px 0 #fff !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.SearchJobWrap {
+  .SearchJobInput {
+    height: 75px;
+    width: 400px;
+    font-size: 18px;
+  }
+}
+
+.user_ShortName {
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+  color: #fff;
+}
+
+.notification-col {
+    .notification-num {
+        width: 18px;
+        height: 18px;
+        right: -11px;
+        top: -8px;
+        font-size: 13px;
+        display: flex;
+        align-items: center;
+        background-color: var(--primary-color,#d54a4a);
+        justify-content: center;
+    }
+}
+
+.notification-num span {
+  position: relative;
+  z-index: 5;
+}
+
+.notification-num:after,
+.notification-num:before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    box-shadow: inset 0 0 20px 5px var(--primary-color,#d54a4a);
+}
+
+.notification-num:after,
+.pcoded-header .navbar-nav > li .dropdown-toggle .badge:after {
+  -webkit-animation: not-blink 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395)
+    infinite;
+  animation: not-blink 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+}
+
+.notification-num:before,
+.pcoded-header .navbar-nav > li .dropdown-toggle .badge:before {
+  -webkit-animation: not-blink 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+  animation: not-blink 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+  -webkit-animation-delay: 1.15s;
+  animation-delay: 1.15s;
+}
+
+@-webkit-keyframes not-blink {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: scale(4);
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+@keyframes not-blink {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: scale(4);
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .app_header {
+    &.scrolled {
+      height: 85px;
+
+      &.searchBar_open {
+        height: 188px;
+      }
+    }
+
+    &.sticky {
+      background-color: $color-primary-light;
+      height: 80px;
+
+      .Applogo_col {
+        img {
+          max-width: 176px;
+          max-height: 48px;
+          width: auto;
+          height: auto;
+        }
+      }
+    }
+  }
+
+  .sticky .SearchJobWrap {
+    transition: all 0.5s ease;
+    .SearchJobInput {
+      height: 50px;
+      transition: all 0.5s ease;
+    }
+    .btn {
+      height: 36px;
+      transition: all 0.5s ease;
+      font-size: 16px;
+    }
+  }
+}
+
+@include media($lg) {
+  #Close_menu_CTA {
+    display: block;
+  }
+
+  /*Header Start*/
+  .header_menu {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.5);
+    width: 260px;
+    height: 100%;
+    z-index: 15;
+    transition: all 0.5s ease;
+    transform: translateX(-100%);
+  }
+  .app_header {
+    height: 90px;
+  }
+  .app_header .container {
+    max-height: 90px;
+
+    .Applogo_col {
+      img {
+        max-width: 100px;
+      }
+    }
+  }
+  #menu_mbl_CTA {
+    display: inline-flex !important;
+  }
+  .header_menu_inner {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: $color-primary;
+    height: 100%;
+    overflow: auto;
+    align-items: start !important;
+    width: 260px;
+    display: block !important;
+    transition: all 0.5s ease;
+  }
+  .app_header .header_menu ul {
+    display: block;
+  }
+  .app_header .header_menu ul li a {
+    padding: 9px 0;
+    display: flex;
+  }
+  .app_header .header_menu ul li a {
+    color: #fff;
+
+    &::after {
+      display: none;
+    }
+
+    &.active {
+      color: $color-secondary;
+    }
+  }
+  .header_menu_inner {
+    padding-top: 15px;
+  }
+
+  .MenuOpen {
+    .header_menu,
+    .Close_menu_overlay {
+      display: block !important;
+    }
+    .header_menu {
+      transform: translateX(0);
+    }
+  }
+
+  .app_header .search_open_row {
+    height: 164px;
+    z-index: 6;
+    padding-top: 22px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .app_header .HeaderSearch_backdrop {
+    top: 164px;
+  }
+  .app_header .search_open_row .search_inline input {
+    font-size: 16px;
+  }
+  #Close_menu_CTA {
+    display: block;
+  }
+
+  .app_header .Applogo_col {
+    img {
+      max-height: 100px;
+      max-width: 100px;
+      width: auto;
+      height: auto;
+      transition: none;
+    }
+  }
+  .SearchJobWrap .SearchJobInput {
+    font-size: 16px;
+  }
+  .SearchJobWrap .SearchJobInput {
+    height: 56px;
+    width: 266px;
+  }
+  /*Header End*/
+
+  .user_dropdown {
+    padding: 0 8px !important;
+  }
+  .user_ShortName {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 11px !important;
+  }
+
+  .dropdown-menu a {
+    font-size: 16px;
+  }
+}
+@include media($md) {
+  .SearchJobWrap {
+    position: fixed;
+    left: 0;
+    top: 90px;
+    width: 100%;
+    background: #fff;
+    z-index: 2;
+    padding: 10px 30px 0;
+
+    // *:not(.btn) {
+    //   border-radius: 0;
+    // }
+    // .input-group-text_prepend{ border-left: 0; }
+    .SearchJobInput {
+      height: 50px;
+    }
+    .btn {
+      height: 34px;
+    }
+    svg {
+      max-width: 16px;
+      height: auto;
+    }
+  }
+
+  .HomePageBody {
+    .SearchJobWrap {
+      position: static;
+      padding: 0;
+    }
+    .page-wrapper {
+      padding-top: 90px;
+    }
+  }
+}
+@include media($mobile-landscape) {
+  .list_institution_mbl {
+    display: block !important;
+    margin: 10px 0 0 15px;
+  }
+  #app_Mainheader .Applogo_col + div .search_inline {
+    position: absolute;
+    left: 20px;
+    background: #fff;
+    bottom: 12px;
+    width: calc(100% - 40px);
+  }
+  .app_header .container .Applogo_col img {
+    max-width: 80px;
+  }
+
+  .app_header {
+    height: 65px;
+  }
+  .app_header .container {
+    max-height: 65px;
+    padding-bottom: 0px;
+  }
+
+  .page-wrapper-v2 {
+    padding-top: 115px;
+  }
+  .page-wrapper-v2 .btn.user_dropdown,
+  #menu_mbl_CTA {
+    height: 30px;
+    svg {
+      max-width: 14px;
+    }
+  }
+
+  .page-wrapper-v2 .btn.user_dropdown img {
+    max-width: 21px;
+  }
+  .page-wrapper-v2 .dropdown-menu {
+    max-width: 110px;
+    min-width: inherit;
+    width: 110px;
+    border-radius: 10px;
+    padding: 10px 15px 10px !important;
+  }
+  .page-wrapper-v2 .dropdown-menu a {
+    font-size: 18px;
+    padding: 5px 0;
+  }
+  .tab_wrap .tab button {
+    margin: 0 6px;
+  }
+  .SearchClose_btn_col {
+    font-size: 16px;
+  }
+  .app_header .search_open_row {
+    height: 150px;
+  }
+  .app_header .HeaderSearch_backdrop {
+    top: 150px;
+  }
+  .app_header .search_open_row {
+    z-index: 20;
+  }
+  .app_header .search_open_row .search_inline {
+    overflow: inherit;
+  }
+  .list_institution_desktop {
+    display: none;
+  }
+
+  .app_header {
+    .btn {
+      height: 30px;
+      line-height: 30px;
+      font-size: 14px;
+      padding: 0 10px;
+      min-width: inherit !important;
+    }
+  }
+  .app_header .header_inner {
+    padding: 0 20px;
+  }
+  .app_header .Applogo_col img {
+    max-height: 84px;
+    max-width: 84px;
+  }
+  .SearchJobWrap {
+    top: 65px;
+    padding: 10px 20px 0;
+    .btn {
+      padding: 0 6px;
+      font-size: 13px;
+    }
+  }
+  .SearchJobWrap .SearchJobInput {
+    font-size: 13px;
+    padding-left: 10px;
+  }
+  .HomePageBody {
+    .page-wrapper {
+      padding-top: 65px;
+    }
+    .SearchJobWrap_home {
+      margin-top: 15px;
+    }
+  }
+
+  .user_ShortName {
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 10px !important;
+  }
+
+  .user_dropdown {
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    padding: 0 5px !important;
+    min-width: inherit !important;
+  }
+  .notification-col {
+    svg {width:17px;
+    }
+  }
+  .notification-col .notification-num {
+    width: 16px;
+    height: 16px;
+    right: -8px;
+    top: -4px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    background-color: #d54a4a;
+    justify-content: center;
+    font-size: 8px;
+  }
+}
