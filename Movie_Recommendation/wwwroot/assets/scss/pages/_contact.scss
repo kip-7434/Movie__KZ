@@ -1,0 +1,47 @@
+.contact_col_wrap2 {
+  border-bottom: 2px dashed #bbbbbb;
+}
+.contact_form {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #d6d6d6;
+  border-radius: 5px;
+
+  .contact_form_head {
+    padding: 22px 30px;
+  }
+  .contct_form_body {
+    padding: 30px;
+  }
+}
+
+@include media($lg) {
+  .contact_col_wrap2 {
+    .contact_col img {
+      max-width: 33px;
+      max-height: 33px;
+    }
+  }
+  .social_iconList.social_iconList_primary li a svg {
+    max-width: 33px;
+    height: auto;
+  }
+}
+
+@include media($mobile-landscape) {
+  .contact_col_wrap2 {
+    .contact_col img {
+      max-width:28px;
+      max-height: 28px;
+    }
+  }
+  .social_iconList.social_iconList_primary li a svg {
+    max-width: 28px;
+  }
+
+  .contact_form .contact_form_head {
+    padding:17px 20px;
+  }
+  .contact_form .contct_form_body {
+    padding: 20px;
+  }
+}

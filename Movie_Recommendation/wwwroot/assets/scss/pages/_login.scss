@@ -1,0 +1,176 @@
+.loginBody {
+  background-color: $color-primary-light;
+}
+.loginScreen {
+  padding-top: 0 !important;
+  background-color: $color-primary-light;
+  .footer_top {
+    display: none !important;
+  }
+}
+
+.login_sign_screen {
+  background-color: $color-primary-light;
+  min-height: calc(100vh - 58px);
+  display: flex;
+  align-items: center;
+  border-top: 4px solid $color-primary;
+  padding-top: 0px;
+  justify-content: center;
+
+  .login_sign_screen_wrap {
+    max-width: 850px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .login_sign_screen_content {
+    background: #ffffff 0% 0% no-repeat padding-box;
+    border: 1px solid #d6d6d6;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 60px 40px 0;
+
+    .form-control {
+    }
+  }
+  .field_col {
+    position: relative;
+  }
+  .Show_link {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+  .form-control {
+    height: 56px;
+  }
+  .btn {
+    height: 44px;
+  }
+}
+
+.link-gray {
+  color: #666666;
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+.footer_sm2 {
+  height: 73px;
+}
+.bottomStrip {
+  background: rgba(227, 242, 232, 0.6);
+  margin-top: 75px;
+  border-radius: 0px 0px 5px 5px;
+  padding: 23px 15px;
+  margin-left: -40px;
+  margin-right: -40px;
+}
+
+.socialBtn {
+  .btn {
+    max-width: 313px;
+    box-shadow: 0px 3px 6px #0000000d;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    &.btn-outline-grey-2 {
+      &:hover {
+        background-color: $color-primary-light;
+        border-color: $color-primary !important;
+      }
+    }
+  }
+}
+
+.login_logo {
+  img {
+    max-width: 300px;
+    max-height: 156px;
+    width: auto;
+    height: auto;
+  }
+}
+
+.closeActionn {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+}
+.text_line1{ white-space:nowrap;}
+
+@include media($xxl) {
+  .login_sign_screen {
+    align-items: start;
+    padding-top: 50px;
+  }
+}
+
+@include media($lg) {
+  .login_logo img {
+    max-width: 200px;
+    max-height: 95px;
+  }
+  .text_line1{ white-space:normal;}
+}
+
+@include media($mobile-landscape) {
+  .login_sign_screen_logo {
+    img {
+      max-width: 100px;
+    }
+  }
+  .login_sign_screen {
+    min-height: inherit;
+    .login_sign_screen_content {
+      padding: 25px 25px 0;
+    }
+    .Show_link {
+      right: 13px;
+      top: 11px;
+    }
+  }
+  .footer_sm2 {
+    height: auto;
+  }
+  .login_sign_screen .form-control {
+    height: 42px;
+  }
+  .login_sign_screen {
+    padding-top: 23px;
+  }
+  .login_sign_screen .btn {
+    height: 40px;
+  }
+  .loginScreen_content {
+    min-height: inherit;
+    padding-bottom: 80px;
+  }
+  .login_logo img {
+    max-width: 135px;
+    max-height: 65px;
+  }
+  .loginLeft {
+    border-width: 0 !important;
+  }
+  .bottomStrip {
+    margin-top: 35px;
+    padding: 17px 0px;
+    margin-left: -25px;
+    margin-right: -25px;
+  }
+  .socialBtn {
+    .btn {
+      font-size: 14px !important;
+    }
+  }
+  .loginBody {
+    position: relative;
+    min-height: 100vh;
+    #footer_app {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+  }
+}

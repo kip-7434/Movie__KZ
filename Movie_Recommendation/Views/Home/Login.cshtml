@@ -1,0 +1,122 @@
+﻿@model Movie_Recommendation.ViewModels.LoginViewModel;
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+@*<style>
+        .login_sign_screen {
+            color: blue;
+        }
+
+            .login_sign_screen a {
+                color: blue !important;
+            }
+
+        label,
+        .floating_text,
+        .bottomStrip,
+        .btn {
+            color: blue !important;
+        }
+
+    </style>*@
+<style>
+    .login_sign_screen {
+        color: blue; /* General text */
+    }
+
+        .login_sign_screen *,
+        .login_sign_screen *::placeholder {
+            color: blue !important; /* Force all children including placeholders */
+        }
+
+        .login_sign_screen .form-control {
+            border-color: blue;
+        }
+
+            .login_sign_screen .form-control:focus {
+                box-shadow: 0 0 0 0.2rem rgba(0, 0, 255, 0.25);
+            }
+
+        .login_sign_screen .btn {
+            background-color: white;
+            border: 1px solid blue;
+            color: blue;
+        }
+
+            .login_sign_screen .btn:hover {
+                background-color: blue;
+                color: white;
+            }
+
+        .login_sign_screen a {
+            color: blue !important;
+        }
+</style>
+
+<div class="loginScreen_content">
+    <div>
+        <div class="login_sign_screen px-4" style="background-color: #1e1e2f !important;">
+            <div class="login_sign_screen_wrap">
+                <div class="login_sign_screen_content">
+                    <div class="font-30px font-bold mb-4">Log in</div>
+
+                    <div class="row">
+                        <div class="col-12 col-md-6 border-end loginLeft mb-3 mb-md-0">
+
+                            <form method="post">
+                                <div class="pe-md-3 pe-xl-5">
+                                    <div class="mb-4 position-relative">
+                                        <div class="field_col">
+                                            <div class="form-floating form-floating-v2">
+                                                <input type="text" class="form-control h-44px" asp-for="Email" required id="floatingInputValue" placeholder="name@example.com">
+                                                <label for="floatingInputValue"><span class="floating_text">Email</span></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-4 position-relative">
+                                        <div class="field_col">
+                                            <div class="form-floating form-floating-v2">
+                                                <input type="password" class="form-control h-44px" asp-for="Password" required id="floatingInputValuePassword" placeholder="password">
+                                                <label for="floatingInputValuePassword"><span class="floating_text">Password</span></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <button class="btn btn-primary font-18px font-medium h-44px w-100" style="background-color: white;">Log in</button>
+                                    </div>
+
+
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                    <div class="text-center font-14px font-medium bottomStrip">No account? <a asp-action="Register" class="link-primary text-decoration-underline font-medium cursor-pointer"> Sign up</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@section Scripts
+{ 
+<script>
+    const toastDataRaw = '@TempData["ToastAlert"]';
+    if (toastDataRaw) {
+        const toastData = JSON.parse(toastDataRaw.replace(/&quot;/g, '"'));
+
+        Swal.fire({
+            icon: toastData.Level.toLowerCase(), // success, error, info, warning
+            title: toastData.Title,
+            text: toastData.Message,
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 4000,
+            timerProgressBar: true
+        });
+    }
+</script>
+}

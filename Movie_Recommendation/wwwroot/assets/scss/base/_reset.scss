@@ -1,0 +1,103 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+html {
+	overflow-x: hidden;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*
+	Code formatting
+*/
+pre code {
+  display: block;
+  color: #000;
+  background: #F3F3F3;
+	font-family: "Consolas", "Menlo", "DejaVu Sans Mono", monospace;
+}
+pre .subst,
+pre .title {
+  font-weight: normal;
+  color: #000;
+}
+pre .comment {
+  color: #535353;
+  font-style: italic;
+}
+pre .doctype {
+  color: #535353;
+}
+pre .tag {
+  background: #F3F3F3;
+}
+pre .tag .title,
+pre .id,
+pre .attr_selector,
+pre .pseudo,
+pre .literal,
+pre .keyword,
+pre .hexcolor,
+pre .css .function,
+pre .ini .title,
+pre .css .class,
+pre .list .title,
+pre .tex .command {
+  font-weight: normal;
+  color: #FF0C64;
+}
+pre .attribute,
+pre .rules .keyword,
+pre .number,
+pre .date {
+  font-weight: normal;
+  color: #008CFF;
+}
+pre .number {
+  font-weight: normal;
+}
+pre .string,
+pre .value,
+pre .filter .argument,
+pre .css .function .params {
+  color: #008900;
+  font-weight: normal;
+}

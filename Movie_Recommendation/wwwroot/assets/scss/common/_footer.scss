@@ -1,0 +1,157 @@
+#footer_app {
+  border-bottom: 4px solid #08c295;
+}
+.footer_app_top {
+  background-color: #2b2b2b;
+  padding: 60px 0 45px;
+}
+.footer_logo {
+  img {
+    max-width: 155px;
+    max-height: 80px;
+    width: auto;
+    height: auto;
+  }
+}
+.footerLinks {
+  li {
+    margin-bottom: 15px;
+    a {
+      color: #fff;
+    }
+
+    &:hover {
+      a {
+        color: $color-primary;
+      }
+    }
+  }
+}
+.footer_title {
+  font-family: $font-medium;
+  margin-bottom: 20px;
+}
+.footer_title_action {
+  display: none;
+}
+
+@media (min-width:1200px) { 
+.footer_content{ display: block !important;}
+}
+
+@include media($lg) {
+  .footer_title {
+    margin-bottom: 15px;
+  }
+  .footerLinks li {
+    margin-bottom: 11px;
+  }
+  .footer_app_top {
+    padding: 40px 0;
+  }
+  .contact_col {
+    img {
+      max-width: 18px;
+      max-height: 18px;
+      width: auto;
+      height: auto;
+    }
+  }
+}
+
+@include media($md) {
+  .FooterLogoColum {
+    border-bottom: 1px solid #000;
+    padding-bottom: 35px;
+    margin-bottom: 35px;
+  }
+}
+
+@include media($mobile-landscape) {
+  .footerLinks {
+    font-size: 16px;
+
+    a {
+      color: #fff;
+    }
+  }
+  #fCol1 .font-32px {
+    font-size: 20px !important;
+    line-height: 26px;
+  }
+  .foot-social a {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+  .foot-social a i {
+    font-size: 14px;
+  }
+  .footSocial_new a {
+    margin-right: 8px !important;
+  }
+  .footCopy-col {
+    flex-direction: column;
+  }
+  .footerLinks .mx-2 {
+    margin-right: 0.3rem !important;
+    margin-left: 0.3rem !important;
+  }
+  .Download_app_field .input-group-text.input-group-text-prepend {
+    width: 46px;
+  }
+  #fCol1 .font-32 {
+    font-size: 20px !important;
+    line-height: 26px;
+  }
+  .social_iconList li {
+    padding: 0 5px;
+  }
+  .footer_content {
+    display: none;
+  }
+  .footer_logo img {
+    max-width: 120px;
+    max-height: 58px;
+  }
+  .footer_app_top {
+    padding: 25px 0 0;
+  }
+  .FooterLogoColum {
+    padding-bottom: 25px;
+    margin-bottom: 0px;
+  }
+  .footer_title {
+    margin-bottom: 0;
+    position: relative;
+    padding: 15px 0;
+  }
+  .footer_colum2 {
+    > div > div {
+      border-bottom: 1px solid #000;
+
+      .footer_content{ padding: 5px 0 15px;}
+
+      &:last-child {
+        border: none;
+
+        .footer_content{ padding: 5px 0 20px;}
+      }
+    }
+  }
+  .footer_title_action {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: end;
+    svg {
+      max-width: 18px;
+      height: auto;
+      fill: #fff;
+    }
+  }
+}

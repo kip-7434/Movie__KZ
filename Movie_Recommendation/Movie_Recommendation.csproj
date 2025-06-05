@@ -1,0 +1,81 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Utilities\DbSetting.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Home\Dashboard.cshtml" />
+    <None Include="Views\Home\Index.cshtml" />
+    <None Include="Views\Home\Privacy.cshtml" />
+    <None Include="wwwroot\assets\.sass-cache\49db925208858fcf3460354aa4baca22ad411275\_footer.scssc" />
+    <None Include="wwwroot\assets\.sass-cache\49db925208858fcf3460354aa4baca22ad411275\_header.scssc" />
+    <None Include="wwwroot\assets\.sass-cache\49db925208858fcf3460354aa4baca22ad411275\_sidebar.scssc" />
+    <None Include="wwwroot\assets\.sass-cache\723aa09aa77f9498db13a23c225b00a44c7d593f\_mixins.scssc" />
+    <None Include="wwwroot\assets\.sass-cache\749f612ef1d86a5a7b29356a372500639b11d983\_reset.scssc" />
+    <None Include="wwwroot\assets\.sass-cache\749f612ef1d86a5a7b29356a372500639b11d983\_typography.scssc" />
+    <None Include="wwwroot\assets\.sass-cache\749f612ef1d86a5a7b29356a372500639b11d983\_variable.scssc" />
+    <None Include="wwwroot\assets\.sass-cache\9621c56f4989b36644775ea2faa6d6bb7b96986d\main.scssc" />
+    <None Include="wwwroot\assets\.sass-cache\9621c56f4989b36644775ea2faa6d6bb7b96986d\style.scssc" />
+    <None Include="wwwroot\assets\.sass-cache\9621c56f4989b36644775ea2faa6d6bb7b96986d\_responsive.scssc" />
+    <None Include="wwwroot\assets\.sass-cache\9621c56f4989b36644775ea2faa6d6bb7b96986d\_slick.scssc" />
+    <None Include="wwwroot\assets\.sass-cache\afdbfea57dcc82b77691d2e046bf2c0d55799ede\_custom.scssc" />
+    <None Include="wwwroot\assets\.sass-cache\afdbfea57dcc82b77691d2e046bf2c0d55799ede\_flickity.scssc" />
+    <None Include="wwwroot\assets\.sass-cache\afdbfea57dcc82b77691d2e046bf2c0d55799ede\_login.scssc" />
+    <None Include="wwwroot\assets\.sass-cache\afdbfea57dcc82b77691d2e046bf2c0d55799ede\_page.scssc" />
+    <None Include="wwwroot\assets\.sass-cache\afdbfea57dcc82b77691d2e046bf2c0d55799ede\_slick.scssc" />
+    <None Include="wwwroot\assets\.sass-cache\f0c251a5c2ee608522dde9254d2197178e2de048\_alert.scssc" />
+    <None Include="wwwroot\assets\.sass-cache\f0c251a5c2ee608522dde9254d2197178e2de048\_buttons.scssc" />
+    <None Include="wwwroot\assets\.sass-cache\f0c251a5c2ee608522dde9254d2197178e2de048\_form.scssc" />
+    <None Include="wwwroot\assets\.sass-cache\f0c251a5c2ee608522dde9254d2197178e2de048\_stepper.scssc" />
+    <None Include="wwwroot\assets\.sass-cache\f0c251a5c2ee608522dde9254d2197178e2de048\_table.scssc" />
+    <None Include="wwwroot\css\media_style.css.map" />
+    <None Include="wwwroot\css\share\style.css.map" />
+    <None Include="wwwroot\css\style.css.map" />
+    <None Include="wwwroot\js\jquery-3.2.1.min.js" />
+    <None Include="wwwroot\js\printThis.js" />
+    <None Include="wwwroot\js\script.js" />
+    <None Include="wwwroot\js\site.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map" />
+    <None Include="wwwroot\lib\bootstrap\LICENSE" />
+    <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+    <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\additional-methods.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\additional-methods.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\jquery.validate.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\jquery.validate.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\LICENSE.md" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.js" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.min.js" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.min.map" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json" Version="3.5.8" />
+  </ItemGroup>
+
+</Project>

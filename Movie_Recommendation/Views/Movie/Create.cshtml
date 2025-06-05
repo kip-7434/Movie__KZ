@@ -1,0 +1,96 @@
+﻿@model Movie_Recommendation.ViewModels.MovieViewModel;
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+
+<div class="page-title border-bottom color-border mb-20 pb-15">
+    <div class="d-flex align-items-center">
+        <a asp-action="Index" class="me-3">
+            <img src="~/assets/img/back-arrow-black.svg" class="flex-0" />
+        </a>
+        <div>
+            <h1 class="text-secondary font-22">
+                Movie
+            </h1>
+        </div>
+    </div>
+</div>
+<div class="common-card card color-border">
+    <form asp-action="Create" method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="Id" />
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-20">
+                    <label for="Name" class="form-label font-14 text-black opacity-08 font-secondary-medium">Title*</label>
+                    <input type="text" asp-for="Title" class="form-control" placeholder="" required>
+                </div>
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-20">
+                    <label for="Initials" class="form-label font-14 text-black opacity-08 font-secondary-medium">Initials*</label>
+                    <input type="text" asp-for="Ratings" class="form-control" placeholder="" required>
+                </div>
+                <span asp-validation-for="Ratings" class="text-danger"></span>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-20">
+                    <label for="Phone" class="form-label font-14 text-black opacity-08 font-secondary-medium">Phone</label>
+                    <input type="text" asp-for="Poster" class="form-control" placeholder="">
+                </div>
+                <span asp-validation-for="Poster" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-20">
+                    <label for="Location" class="form-label font-14 text-black opacity-08 font-secondary-medium">Location</label>
+                    <input type="text" asp-for="Overview" class="form-control" placeholder="">
+                </div>
+                <span asp-validation-for="Overview" class="text-danger"></span>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-20">
+                    <label for="ExpiryDate" class="form-label font-14 text-black opacity-08 font-secondary-medium">Expiry Date</label>
+                    <input type="date" asp-for="Cast" class="form-control" placeholder="">
+                </div>
+                <span asp-validation-for="Cast" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="mb-20">
+                <label for="Logo" class="form-label font-14 text-black opacity-08 font-secondary-medium">Logo</label>
+                <input asp-for="LogoFile" type="file" class="form-control h-44px" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-20">
+                    <label for="ExpiryDate" class="form-label font-14 text-black opacity-08 font-secondary-medium">Crew</label>
+                    <input type="date" asp-for="Crew" class="form-control" placeholder="">
+                </div>
+                <span asp-validation-for="Crew" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 d-flex justify-content-start mb-2">
+                <a type="button" asp-action="Index" class="btn btn-36 btn-outline-primary font-secondary-medium font-14 me-2">Cancel</a>
+                    <button class="btn btn-36 btn-primary font-secondary-medium font-14">Register</button>
+            </div>
+        </div>
+    </form>
+</div>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('.js-example-basic-single').select2({
+            });
+        });
+    </script>
+
+}

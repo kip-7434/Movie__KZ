@@ -1,0 +1,381 @@
+.btn {
+  min-width:87px;
+  height:42px;
+  line-height: 42px;
+  padding: 0 12px;
+  border-radius: 5px;
+  letter-spacing: 0;
+  font-size: 18px;
+  justify-content: center;
+  font-family: $font-medium;
+  display: inline-flex;
+  align-items: center;
+
+  svg {
+    transition: all 0.3s ease;
+  }
+
+  &.btn-px-10px {
+    padding: 0 10px !important;
+  }
+
+  &.btn-h-33 {
+    height: 33px !important;
+    line-height: 33px;
+  }
+
+  &.btn-h-30 {
+    height: 30px !important;
+    line-height: 30px;
+  }
+
+  &.btn-h-28 {
+    height: 28px !important;
+    line-height: 28px;
+  }
+
+  &.btn-h-22 {
+    height: 22px !important;
+    line-height: 22px;
+  }
+
+  &.btn-h-35 {
+    height: 35px !important;
+    line-height: 35px;
+  }
+
+  &.h-57px {
+    line-height: 57px;
+  }
+
+  &.btn-h-40 {
+    height: 40px;
+    line-height: 40px;
+  }
+
+  &.btn-h-56 {
+    height: 56px;
+    line-height: 56px;
+  }
+
+  &.btn-sm {
+    width: 80px;
+    width: 80px;
+    min-width: inherit;
+    padding: 0;
+    font-size: 13px;
+  }
+
+  &.btn-white {
+    background-color: $color-white;
+    border: 1px solid #fff;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $color-secondary;
+      color: #ffffff;
+      border-color: $color-secondary;
+    }
+  }
+
+  
+.svg_arrow1{ fill:red}
+
+  &.btn-outline-light {
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: #fff;
+      color: $color-primary;
+      border-color: #fff;
+
+      
+.svg_arrow1{ fill:$color-primary;}
+    }
+
+
+  }
+
+  &.btn-grey {
+    background-color: $color-grey1;
+    border-color: $color-grey1;
+    color: $color-white;
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $color-primary;
+      border-color: $color-primary;
+    }
+  }
+
+  &.btn-222px {
+    width: 222px;
+  }
+
+  &.btn-h-50px {
+    height: 50px;
+    line-height: 50px;
+  }
+
+  &.btn.btn-h-30 {
+    height: 30px !important;
+    line-height: 30px;
+  }
+
+  &.btn-outline-grey {
+    border: 1px solid $grey-light !important;
+    color: $color-7D7D7D;
+
+    // svg{ fill:#717171;}
+
+    &:hover,
+    &:focus {
+      // background-color: $color-secondary;
+      border-color: $color-secondary;
+      color: $color-white;
+      // svg{ fill:$color-secondary;}
+    }
+
+    &.btn-outline-grey-2 {
+      color: $color-default;
+
+      &:hover,
+      &:focus,
+      &:active {
+        // background-color: $color-secondary;
+        border-color: $color-secondary !important;
+        color: $color-secondary;
+        // svg{ fill:$color-secondary;}
+      }
+    }
+  }
+
+  &.btn-outline-secondary {
+    border-color: $color-secondary !important;
+    color: $color-secondary !important;
+    background-color: transparent !important;
+    &:hover {
+      border-color: $color-primary !important;
+      color: $color-primary !important;
+    }
+  }
+
+  &.btn-grey-round {
+    width: 40px;
+    height: 40px;
+    @include border-radius(50%);
+    min-width: inherit;
+    background: #e2e2e2;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: none !important;
+
+    svg {
+      fill: $color-7D7D7D;
+    }
+
+    &:hover,
+    &.active {
+      background: $color-7D7D7D;
+      color: $color-white;
+      svg {
+        fill: $color-white;
+      }
+    }
+  }
+  &.btn-outline-danger {
+    color: $color-danger;
+    border-color: $color-danger;
+    svg {
+      fill: $color-danger;
+    }
+
+    &:hover {
+      svg {
+        fill: $color-white;
+      }
+    }
+  }
+}
+.btn-primary {
+  background-color: $color-primary;
+  border-color: $color-primary;
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: $color-secondary;
+    border-color: $color-secondary;
+  }
+
+  &.btn-primary-hoverWhite {
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: #fff;
+      border-color: $color-primary;
+      color: $color-primary;
+    }
+  }
+}
+
+.btn-outline-primary {
+  border-color: $color-primary;
+  color: $color-primary;
+  svg {
+    fill: $color-primary;
+  }
+  &:hover,
+  &:active {
+    background-color: $color-secondary;
+    border-color: $color-secondary;
+    color: #fff;
+    svg {
+      fill: #fff;
+    }
+  }
+}
+
+
+.btn-outline-primary-light {
+  border-color: $color-primary; background-color: $color-light;
+  color: $color-primary;
+  svg {
+    fill: $color-primary;
+  }
+  &:hover,
+  &:active {
+    background-color: $color-secondary;
+    border-color: $color-secondary;
+    color: #fff;
+    svg {
+      fill: #fff;
+    }
+  }
+}
+
+.btn-secondary {
+  background-color: $color-secondary;
+  border-color: $color-secondary;
+  &:hover,
+  &:focus {
+    background-color: $color-primary;
+    border-color: $color-primary;
+  }
+
+  &.btn-secondary-hover-white {
+    &:hover,
+    &:focus {
+      background-color: #fff;
+      border-color: #fff;
+      color: $color-secondary;
+    }
+  }
+}
+
+.btn-secondary-dark {
+  background-color: $color-secondary-dark;
+  border-color: $color-secondary-dark;
+  color: #fff !important;
+  &:hover,
+  &:focus {
+    background-color: $color-primary;
+    border-color: $color-primary;
+  }
+}
+
+.ripple {
+  background-position: center;
+  transition: background 0.8s;
+}
+.ripple:hover {
+  background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%)
+    center/15000%;
+}
+.ripple:active {
+  background-color: #6eb9f7;
+  background-size: 100%;
+  transition: background 0s;
+}
+
+// .ripple{
+// 	position: relative; /*Position relative is required*/
+
+// 	overflow:hidden;
+// }
+
+// .ripple:hover:before {
+//   animation: ripple 3s ease;
+// }
+
+// .ripple:before {
+//   content: "";
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   background-color: rgba(255, 255, 255, 0.1);
+//   border-radius: 50%;
+//   transform: scale(0);
+// }
+
+// @keyframes ripple{
+// 	from{transform:scale(0); opacity:1;}
+// 	to{transform:scale(7);opacity:0;}
+// }
+
+@include media($xl) {
+  .btn {
+    &.btn-h-50px {
+      height: 42px;
+      line-height: 42px;
+    }
+  }
+}
+@include media($lg) {
+  .btn{ font-size: 16px;height: 38px;}
+}
+@include media($mobile-landscape) {
+  .btn {
+    height: 34px;
+    line-height: 34px; min-width:80px; font-size: 14px;
+
+    &.btn-h-40 {
+      height: 36px;
+      line-height: 36px;
+    }
+  }
+
+  .buttons-lg {
+    height: 38px !important;
+  }
+
+  .btn-outline-primary {
+    font-size: 14px;
+    padding: 0 12px;
+
+    svg {
+      width: 20px;
+    }
+  }
+  .btn.btn-222px {
+    width: auto;
+    min-width: 130px;
+  }
+  .btn.btn-grey-round {
+    width: 36px;
+    height: 36px;
+  }
+  .btn.btn-h-56 {
+    height: 38px;
+    line-height: 38px;
+    font-size: 16px !important;
+  }
+
+  .dropdown-select-bottom {
+    padding-left: 15px !important;
+  }
+}

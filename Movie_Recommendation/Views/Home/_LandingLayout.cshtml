@@ -1,0 +1,123 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<Movie_Recommendation.Models.ApplicationUser> signInManager;
+@inject UserManager<Movie_Recommendation.Models.ApplicationUser> user;
+@{
+    var userSet = await user.GetUserAsync(User);
+    var username = "";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Script Tutorials" />
+    <title>@ViewData["Title"] - Movie-Recommendation System</title>
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link href="~/vendor/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/vendor/select2@4.1.0-rc.0/select2.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link href="~/assets/css_html/style.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-root-margin="0px 0px -60%" data-bs-smooth-scroll="true" tabindex="0" data-offset="0">
+    <div>
+        <div class="page-wrapper">
+            <div class="svg-icon-wrap">
+                <svg>
+
+                </svg>
+            </div>
+            <header id="app_Mainheader" class="app_header">
+                <button class="Close_menu_overlay">close</button>
+                <div class="container-fluid px-0 h-100">
+                    <div class="header_inner">
+                        <div class="d-flex align-items-center h-100 justify-content-between">
+                            <div class="d-flex align-items-center">
+
+                            </div>
+
+                            <div class="d-flex flex-grow-1 ps-4">
+                                <div class="header_menu d-flex align-items-center justify-content-center flex-grow-1">
+                                    <div class='header_menu_inner d-flex align-items-center justify-content-end flex-grow-1'>
+                                        <button id="Close_menu_CTA">
+                                            <svg class="me-1 position-relative top--1" width="9.653" height="9.653" viewBox="0 0 9.653 9.653">
+                                                <path id="Icon_ionic-md-close" data-name="Icon ionic-md-close" d="M17.176,8.489l-.965-.965L12.35,11.385,8.489,7.523l-.965.965,3.861,3.861L7.523,16.211l.965.965,3.861-3.861,3.861,3.861.965-.965L13.315,12.35Z" transform="translate(-7.523 -7.523)" fill="rgba(255,255,255,1)"></path>
+                                            </svg>
+                                        </button>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="d-flex header_rt position-relative z-5">
+
+                                <button id="menu_mbl_CTA" class="btn btn-outline-secondary px-2 d-flex align-items-center min-w-inherit dropdown-arrow-none me-2 me-md-0">
+                                    <svg class="me-1 ms-1" width="18" height="12" viewBox="0 0 18 12">
+                                        <path id="Path_5135" data-name="Path 5135" d="M3,18H21V16H3Zm0-5H21V11H3ZM3,6V8H21V6Z" transform="translate(-3 -6)" fill="#000"></path>
+                                    </svg>
+                                </button>
+                                <a asp-controller="Account" asp-action="Login" class="btn btn-outline-primary ms-md-3 min-w-inherit px-3 list_institution_desktop_no">Login</a>
+                                <a asp-controller="Account" asp-action="Register" class="btn btn-primary ms-2 ms-md-3 ">Sign up</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+
+            @RenderBody()
+
+
+            <footer id="footer_app" class="mt-2 mt-md-0">
+                <div class="footer_app_top text-white">
+                    <div class="">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 col-md-12 col-lg-3 col-xl-4 pe-0 FooterLogoColum">
+                                    <div class="text-center d-flex d-inline-lg-flex flex-column">
+                                        <div class="footer_logo">
+                                            <img src="~/assets/img/logo_white.png">
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-black py-3 text-center text-white font-14">
+                    <div class="py-1"> All rights reserved. Copyright © @DateTime.Now.Year Movie-Recommendation System</div>
+                </div>
+
+            </footer>
+
+
+            <a href="#page-body" id="backtoTop" class="btn btn-primary BackToTop p-0 min-w-inherit d-flex align-items-center justify-content-center font-26px cursor-pointer position-fixed z-3 shadow">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up">
+                    <line x1="12" y1="19" x2="12" y2="5"></line>
+                    <polyline points="5 12 12 5 19 12"></polyline>
+                </svg>
+            </a>
+        </div>
+    </div>
+    <script src="~/assets/js/jquery-3.2.1.min.js"></script>
+    <script src="~/vendor/bootstrap-5.1.3-dist/js/popper.min.js"></script>
+    <script src="~/vendor/bootstrap-5.3.0-alpha1-dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="~/assets/js/script.js"></script>
+    <script src="~/js/site.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <partial name="_NotificationsPartial" />
+
+
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>
