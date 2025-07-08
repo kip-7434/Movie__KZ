@@ -117,6 +117,12 @@ namespace Movie_Recommendation.Controllers
         [HttpGet("GetMovie/{id}")]
         public async Task<ActionResult<Movies>> GetMovie(int id)
         {
+            var authorizationHeaders = HttpContext.Request.Headers["Authorization"].FirstOrDefault();
+            var email = GetEmailFromToken(authorizationHeaders);
+            if (string.IsNullOrEmpty(email))
+            {
+                return Unauthorized("Sorry, you have nt loggged in/session expired");
+            }
             var movie = _iAPIService.GetMovie(id);
             if(movie != null)
             {
@@ -127,24 +133,42 @@ namespace Movie_Recommendation.Controllers
        [HttpPost("Create")]
         public async Task<ActionResult<Movies>> Create([FromForm] Movies movie, [FromForm] IFormFile? file)
         {
+            var authorizationHeaders = HttpContext.Request.Headers["Authorization"].FirstOrDefault();
+            var email = GetEmailFromToken(authorizationHeaders);
+            if (string.IsNullOrEmpty(email))
+            {
+                return Unauthorized("Sorry, You have not logged in/Loggin expired");
+            }
             var data =  _iAPIService.Create(movie,file);
             return CreatedAtAction(nameof(GetMovie), new  { id = data.Id }, data);
 
         }
         [HttpPost("Update/{id}")]
-        public Task<Movies> Update(int id, Movies movies)
+        public async  Task<ActionResult<Movies>> Update(int id, Movies movies)
         {
+            var authorizationHeaders = HttpContext.Request.Headers["Authorization"].FirstOrDefault();
+            var email = GetEmailFromToken(authorizationHeaders);
+            if (string.IsNullOrEmpty(email))
+            {
+                return Unauthorized("Sorry, You have not logged in/session expired");
+            }
             var data = _iAPIService.Update(id, movies);
             if(data != null)
             {
-                return data;
+                return Ok(data);
             }
-            return null;
+            return NotFound();
         }
       
         [HttpDelete("Delete/{id}")]
         public async Task<IActionResult> Delete(int id)
         {
+            var authorizationHeaders = HttpContext.Request.Headers["Authorization"].FirstOrDefault();
+            var email = GetEmailFromToken(authorizationHeaders);
+            if (string.IsNullOrEmpty(email))
+            {
+                return Unauthorized("Sorry, you have not logged in/session expired");
+            }
             var result = await _iAPIService.Delete(id);
             if (result ==null) return NotFound();
             return NoContent();
