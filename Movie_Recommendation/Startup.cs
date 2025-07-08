@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Movie_Recommendation.Models;
+using Movie_Recommendation.Servicces;
 using Movie_Recommendation.Services;
 using System;
 using System.Collections.Generic;
@@ -40,6 +41,7 @@ namespace Movie_Recommendation
             services.AddHttpClient();
 
             services.AddHttpClient<MovieService>();
+            services.AddScoped<IAPIService, APIService>();
 
             services.Configure<IdentityOptions>(options =>
             {
@@ -76,7 +78,6 @@ namespace Movie_Recommendation
 
             app.UseAuthentication(); 
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
